@@ -8,7 +8,7 @@ const { Server: HttpServer } = require('http');
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/products', routerProducts);
@@ -52,7 +52,7 @@ const arrayMessages = [];
 io.on('connection', (socket) => {
     console.log(`✔ User connected`);
     socket.on('message', data => {
-        arrayMessages.push( { socketId: socket.id, message: data } )
+        arrayMessages.push( { email: data.email, dateTime: data.dateTime, message: data.message } )
         io.sockets.emit('messages', arrayMessages);
     })
 });

@@ -1,0 +1,18 @@
+<h3 style="margin-top: 6rem; padding: .5rem;">Inbox</h3>
+<form onsubmit="userMessage(e);" style="padding: 0 .5rem .5rem .5rem;">
+    <div class="row g-3">
+        <div class="col">
+            <input type="text" class="form-control" id="emailInput" placeholder="Email" name="email" required>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="messageInput" placeholder="Enter message" name="message">
+        </div>
+        <div class="col">
+            <input type="submit" class="btn btn-outline-dark" value="Send">
+        </div>
+    </div>
+    <p class="col" id="pChatStyle" style="padding: .5rem;"></p>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../index.js"></script>
+    <script src="../../server.js"></script>
+</form>
