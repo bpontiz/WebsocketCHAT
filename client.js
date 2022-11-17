@@ -12,7 +12,6 @@ function userMessage(e) {
         dateTime: showTime,
         message: messageInput.value
     };
-
     socket.emit('message', newMessage);
 };
 

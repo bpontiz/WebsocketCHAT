@@ -8,7 +8,7 @@ const { Server: HttpServer } = require('http');
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-app.use(express.static(__dirname + '/'));
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/products', routerProducts);
@@ -56,7 +56,6 @@ io.on('connection', (socket) => {
         io.sockets.emit('messages', arrayMessages);
     })
 });
-
 
 const PORT = 8080;
 const server = httpServer.listen(PORT, () => {
